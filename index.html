@@ -6,7 +6,7 @@
 <script>
 async function readText() {
   const path = window.location.pathname.replace("/read/", "");
-  const res = await fetch("/texts/" + path);
+  const res = await fetch("/texts/" + path + ".txt");
   const text = await res.text();
 
   document.body.innerText = text;
@@ -19,4 +19,5 @@ async function readText() {
 readText();
 </script>
 </body>
+
 </html>
