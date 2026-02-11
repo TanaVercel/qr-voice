@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>กำลังอ่านข้อมูล...</h2>
+
+<script>
+async function readText() {
+  const path = window.location.pathname.replace("/read/", "");
+  const res = await fetch("/texts/" + path);
+  const text = await res.text();
+
+  document.body.innerText = text;
+
+  const speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "th-TH";
+  speechSynthesis.speak(speech);
+}
+
+readText();
+</script>
+</body>
+</html>
